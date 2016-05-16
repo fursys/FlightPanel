@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBitz_project_file>
+	<EmBitzVersion release="0.42" revision="0" />
+	<FileVersion major="1" minor="0" />
+	<Project>
+		<Option title="FlightPanel" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc_eb" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\FlightPanel.elf" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O0" />
+					<Add option="-g2" />
+				</Compiler>
+				<Assembler>
+					<Add option="--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-eb_start_files" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\FlightPanel.elf" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-g2" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Compiler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m3" />
+			<Add option="$lscript=./STM32F103C8_FLASH.ld" />
+			<Add option="$stack=0x0100" />
+			<Add option="$heap=0x0000" />
+		</Device>
+		<Compiler>
+			<Add option="-std=c99" />
+			<Add option="-Wall" />
+			<Add option="-DSTM32F103C8" />
+			<Add option="-fno-strict-aliasing" />
+			<Add option="-DSTM32F103xB" />
+			<Add option="-DUSE_HAL_DRIVER" />
+			<Add directory=".\inc" />
+			<Add directory="cmsis\inc" />
+			<Add directory="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\GCC\ARM_CM3" />
+			<Add directory="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include" />
+			<Add directory="HAL\Inc" />
+			<Add directory="HAL\Inc\Legacy" />
+		</Compiler>
+		<Linker>
+			<Add option="-eb_lib=n" />
+			<Add option="-eb_start_files" />
+			<Add option="-Wl,--gc-sections" />
+		</Linker>
+		<Unit filename="cmsis\inc\core_cm3.h" />
+		<Unit filename="cmsis\inc\stm32f103xb.h" />
+		<Unit filename="cmsis\inc\stm32f1xx.h" />
+		<Unit filename="cmsis\inc\system_stm32f1xx.h" />
+		<Unit filename="cmsis\Src\system_stm32f1xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Inc\Legacy\stm32_hal_legacy.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_cortex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_def.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_flash.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_flash_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_gpio.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_gpio_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_pcd.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_pcd_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_pwr.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_rcc.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_rcc_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_ll_usb.h" />
+		<Unit filename="HAL\Src\stm32f1xx_hal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_cortex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_flash_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_pcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_pcd_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_rcc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_ll_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="inc\FreeRTOSConfig.h" />
+		<Unit filename="inc\mxconstants.h" />
+		<Unit filename="inc\stm32f1xx_hal_conf.h" />
+		<Unit filename="Src\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\startup_stm32f103xb.S">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="STM32F103C8_FLASH.ld" />
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" />
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\MemMang\heap_5.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\tasks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<target_debugging_settings target="Debug" active_interface="ST-link">
+					<debug_interface interface_id="Generic" ip_address="" ip_port="" path="" executable="" description="STM32F105xx.svd" dont_start_server="false" backoff_time="" options="2" reg_filter="0" active_family="All">
+						<family_options family_id="All" />
+					</debug_interface>
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="STM32F105xx.svd" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+				<target_debugging_settings target="Release" active_interface="ST-link">
+					<debug_interface interface_id="Generic" ip_address="" ip_port="" path="" executable="" description="STM32F105xx.svd" dont_start_server="false" backoff_time="" options="2" reg_filter="0" active_family="All">
+						<family_options family_id="All" />
+					</debug_interface>
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+			</debugger>
+			<envvars />
+		</Extensions>
+	</Project>
+</EmBitz_project_file>
