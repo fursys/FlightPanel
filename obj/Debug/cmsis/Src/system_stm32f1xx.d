@@ -6,6 +6,9 @@ obj\debug\cmsis\src\system_stm32f1xx.o: cmsis\Src\system_stm32f1xx.c \
  inc/stm32f1xx_hal_conf.h inc/mxconstants.h HAL\Inc/stm32f1xx_hal_rcc.h \
  HAL\Inc/stm32f1xx_hal_def.h HAL\Inc/Legacy/stm32_hal_legacy.h \
  HAL\Inc/stm32f1xx_hal_rcc_ex.h HAL\Inc/stm32f1xx_hal_gpio.h \
- HAL\Inc/stm32f1xx_hal_gpio_ex.h HAL\Inc/stm32f1xx_hal_cortex.h \
+ HAL\Inc/stm32f1xx_hal_gpio_ex.h HAL\Inc/stm32f1xx_hal_dma.h \
+ HAL\Inc/stm32f1xx_hal_dma_ex.h HAL\Inc/stm32f1xx_hal_cortex.h \
  HAL\Inc/stm32f1xx_hal_flash.h HAL\Inc/stm32f1xx_hal_flash_ex.h \
- HAL\Inc/stm32f1xx_hal_pwr.h
+ HAL\Inc/stm32f1xx_hal_pwr.h HAL\Inc/stm32f1xx_hal_spi.h \
+ HAL\Inc/stm32f1xx_hal_tim.h HAL\Inc/stm32f1xx_hal_tim_ex.h \
+ HAL\Inc/stm32f1xx_hal_uart.h

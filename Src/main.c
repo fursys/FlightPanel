@@ -5,6 +5,8 @@
 #include "task.h"
 #include "semphr.h"
 
+#include "ILI9341_lib.h"
+
 
 
 //------------------------------------------------------------------------------------------------
@@ -20,7 +22,7 @@ Data size è BSS size
 */
 const HeapRegion_t xHeapRegions[] =
 {
-    { ( uint8_t * ) 0x20000800UL, configTOTAL_HEAP_SIZE },
+    { ( uint8_t * ) 0x20000C00UL, configTOTAL_HEAP_SIZE },
     { NULL, 0 } /* Terminates the array. */
 };
 
@@ -28,10 +30,27 @@ const HeapRegion_t xHeapRegions[] =
 //------------------------------------------------------------------------------------------------
 #define Blink1_PRIORITY					( tskIDLE_PRIORITY + 1 )
 //------------------------------------------------------------------------------------------------
+SPI_HandleTypeDef hspi1;
+SPI_HandleTypeDef hspi2;
+DMA_HandleTypeDef hdma_spi1_tx;
+
+TIM_HandleTypeDef htim1;
+
+UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+
+
+static void MX_DMA_Init(void);
+static void MX_SPI1_Init(void);
+//static void MX_SPI2_Init(void);
+//static void MX_TIM1_Init(void);
+//static void MX_USART1_UART_Init(void);
 
 //------------------------------------------------------------------------------------------------
 static void Blink1( void *pvParameters )
 {
+
+
     GPIO_InitTypeDef GPIO_InitStruct;
 
   	//volatile int State=0;
@@ -46,7 +65,13 @@ static void Blink1( void *pvParameters )
     //RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     //GPIOB->CRH      |= GPIO_CRH_MODE12_1;//Output mode, max speed 2 MHz.
     //GPIOB->CRH      &= ~GPIO_CRH_CNF12;
+    LCD_FillRect(0, 0, 320, 50, Red);
+    LCD_FillRect(0, 50, 320, 50, Green);
+    LCD_FillRect(0, 100, 320, 50, Blue);
+    LCD_FillRect(0, 150, 320, 50, Cyan);
+    LCD_FillRect(0, 200, 320, 40, Magenta);
 
+    //LCD_DrawFilledRectangle (50, 0, 80, 310, 0xFFFF);
 	while( 1 )
     {
         HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin);
@@ -108,10 +133,49 @@ int main(void)
 
     /* Configure the system clock */
     SystemClock_Config();
+    MX_DMA_Init();
+    MX_SPI1_Init();
 
+    LCD_Init(&hspi1);
 
 	xTaskCreate( Blink1,"Blink1", configMINIMAL_STACK_SIZE, NULL, Blink1_PRIORITY, NULL );
 
 	/* Start the scheduler. */
 	vTaskStartScheduler();
+}
+//------------------------------------------------------------------------------------------------
+/* SPI1 init function */
+void MX_SPI1_Init(void)
+{
+
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_MASTER;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLED;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLED;
+  hspi1.Init.CRCPolynomial = 10;
+  HAL_SPI_Init(&hspi1);
+
+}
+//------------------------------------------------------------------------------------------------
+/**
+  * Enable DMA controller clock
+  */
+void MX_DMA_Init(void)
+{
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
+
 }

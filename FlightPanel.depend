@@ -1,0 +1,441 @@
+# depslib dependency file v1.0
+1456049042 source:c:\skuksenk\_quadro\arm\prj\flightpanel\cmsis\src\system_stm32f1xx.c
+	"stm32f1xx.h"
+
+1454256474 c:\skuksenk\_quadro\arm\prj\flightpanel\cmsis\inc\stm32f1xx.h
+	"stm32f100xb.h"
+	"stm32f100xe.h"
+	"stm32f101x6.h"
+	"stm32f101xb.h"
+	"stm32f101xe.h"
+	"stm32f101xg.h"
+	"stm32f102x6.h"
+	"stm32f102xb.h"
+	"stm32f103x6.h"
+	"stm32f103xb.h"
+	"stm32f103xe.h"
+	"stm32f103xg.h"
+	"stm32f105xc.h"
+	"stm32f107xc.h"
+	"stm32f1xx_hal.h"
+
+1454256474 c:\skuksenk\_quadro\arm\prj\flightpanel\cmsis\inc\stm32f103xb.h
+	"core_cm3.h"
+	"system_stm32f1xx.h"
+	<stdint.h>
+
+1454256488 c:\skuksenk\_quadro\arm\prj\flightpanel\cmsis\inc\core_cm3.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1455972529 c:\skuksenk\_quadro\arm\prj\flightpanel\cmsis\inc\system_stm32f1xx.h
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal.h
+	"stm32f1xx_hal_conf.h"
+
+1463813801 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\stm32f1xx_hal_conf.h
+	"mxconstants.h"
+	"stm32f1xx_hal_rcc.h"
+	"stm32f1xx_hal_gpio.h"
+	"stm32f1xx_hal_dma.h"
+	"stm32f1xx_hal_eth.h"
+	"stm32f1xx_hal_can.h"
+	"stm32f1xx_hal_cec.h"
+	"stm32f1xx_hal_cortex.h"
+	"stm32f1xx_hal_adc.h"
+	"stm32f1xx_hal_crc.h"
+	"stm32f1xx_hal_dac.h"
+	"stm32f1xx_hal_flash.h"
+	"stm32f1xx_hal_sram.h"
+	"stm32f1xx_hal_nor.h"
+	"stm32f1xx_hal_i2c.h"
+	"stm32f1xx_hal_i2s.h"
+	"stm32f1xx_hal_iwdg.h"
+	"stm32f1xx_hal_pwr.h"
+	"stm32f1xx_hal_rtc.h"
+	"stm32f1xx_hal_pccard.h"
+	"stm32f1xx_hal_sd.h"
+	"stm32f1xx_hal_nand.h"
+	"stm32f1xx_hal_spi.h"
+	"stm32f1xx_hal_tim.h"
+	"stm32f1xx_hal_uart.h"
+	"stm32f1xx_hal_usart.h"
+	"stm32f1xx_hal_irda.h"
+	"stm32f1xx_hal_smartcard.h"
+	"stm32f1xx_hal_wwdg.h"
+	"stm32f1xx_hal_pcd.h"
+	"stm32f1xx_hal_hcd.h"
+
+1463833723 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\mxconstants.h
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_rcc.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_rcc_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_def.h
+	"stm32f1xx.h"
+	"Legacy/stm32_hal_legacy.h"
+	<stdio.h>
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\legacy\stm32_hal_legacy.h
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_rcc_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_gpio.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_gpio_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_gpio_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_dma.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_dma_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_dma_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_cortex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_flash.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_flash_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_flash_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_pwr.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_spi.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_pcd.h
+	"stm32f1xx_ll_usb.h"
+	"stm32f1xx_hal_pcd_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_ll_usb.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_pcd_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_cortex.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_flash.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_flash_ex.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_gpio.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_pcd.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_pcd_ex.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_pwr.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_rcc.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_rcc_ex.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_ll_usb.c
+	"stm32f1xx_hal.h"
+
+1454256474 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\startup_stm32f103xb.s
+
+1445001178 source:c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\list.c
+	<stdlib.h>
+	"FreeRTOS.h"
+	"list.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\freertos.h
+	<stddef.h>
+	<stdint.h>
+	"FreeRTOSConfig.h"
+	"projdefs.h"
+	"portable.h"
+
+1463859482 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\freertosconfig.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\projdefs.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\portable.h
+	"deprecated_definitions.h"
+	"portmacro.h"
+	"mpu_wrappers.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\deprecated_definitions.h
+	"..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h"
+	"..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h"
+	"../portable/GCC/ATMega323/portmacro.h"
+	"../portable/IAR/ATMega323/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC18F/portmacro.h"
+	"../../Source/portable/MPLAB/PIC32MX/portmacro.h"
+	"libFreeRTOS/Include/portmacro.h"
+	"../../Source/portable/SDCC/Cygnal/portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC2000/portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC23xx/portmacro.h"
+	"..\..\Source\portable\IAR\MSP430\portmacro.h"
+	"../../Source/portable/GCC/MSP430F449/portmacro.h"
+	"../../Source/portable/Rowley/MSP430F449/portmacro.h"
+	"..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91SAM7S/portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h"
+	"..\..\Source\portable\IAR\LPC2000\portmacro.h"
+	"..\..\Source\portable\IAR\STR71x\portmacro.h"
+	"..\..\Source\portable\IAR\STR75x\portmacro.h"
+	"..\..\Source\portable\GCC\STR75x\portmacro.h"
+	"..\..\Source\portable\IAR\STR91x\portmacro.h"
+	"../../Source/portable/GCC/H8S2329/portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h"
+	"../../Source/portable/RVDS/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/CodeWarrior/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MicroBlaze/portmacro.h"
+	"..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h"
+	"../../Source/portable/GCC/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MCF5235/portmacro.h"
+	"../../../Source/portable/GCC/ColdFire_V2/portmacro.h"
+	"../../Source/portable/CodeWarrior/ColdFire_V2/portmacro.h"
+	"../../Source/portable/GCC/PPC405_Xilinx/portmacro.h"
+	"../../Source/portable/GCC/PPC440_Xilinx/portmacro.h"
+	"..\..\Source\portable\Softune\MB96340\portmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\PC\prtmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\flsh186\prtmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\owatcom\16bitdos\pc\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\owatcom\16bitdos\flsh186\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\atmega323\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\atmega323\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\mplab\pic24_dspic\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\mplab\pic18f\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\mplab\pic32mx\portmacro.h
+	<xc.h>
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\sdcc\cygnal\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm7_lpc2000\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm7_lpc23xx\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\msp430\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\msp430f449\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\rowley\msp430f449\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\rvds\arm7_lpc21xx\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm7_at91sam7s\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\atmelsam7s64\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\atmelsam9xe\portmacro.h
+	<intrinsics.h>
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\lpc2000\portmacro.h
+	<intrinsics.h>
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\str71x\portmacro.h
+	<intrinsics.h>
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\str75x\portmacro.h
+	<intrinsics.h>
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\str75x\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\str91x\portmacro.h
+	<intrinsics.h>
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\h8s2329\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm7_at91fr40008\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\rvds\arm_cm3\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\arm_cm3\portmacro.h
+	<intrinsics.h>
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\codewarrior\hcs12\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\microblaze\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\paradigm\tern_ee\small\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\hcs12\portmacro.h
+
+1388953969 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\mcf5235\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\codewarrior\coldfire_v2\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\ppc405_xilinx\portmacro.h
+	"xexception_l.h"
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\ppc440_xilinx\portmacro.h
+	"xexception_l.h"
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\softune\mb96340\portmacro.h
+	<stddef.h>
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\bcc\16bitdos\pc\prtmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\bcc\16bitdos\flsh186\prtmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\v850es\portmacro.h
+
+1445001179 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\iar\78k0r\portmacro.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\mpu_wrappers.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\list.h
+
+1445001178 source:c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.c
+	"FreeRTOS.h"
+	"task.h"
+
+1445101942 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\task.h
+	"list.h"
+
+1445001179 source:c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.c
+	<stdlib.h>
+	"FreeRTOS.h"
+	"task.h"
+
+1445001179 source:c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\queue.c
+	<stdlib.h>
+	<string.h>
+	"FreeRTOS.h"
+	"task.h"
+	"queue.h"
+	"croutine.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\queue.h
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\croutine.h
+	"list.h"
+
+1445001179 source:c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\tasks.c
+	<stdlib.h>
+	<string.h>
+	"FreeRTOS.h"
+	"task.h"
+	"timers.h"
+	"StackMacros.h"
+	<stdio.h>
+	"tasks_test_access_functions.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\timers.h
+	"task.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\stackmacros.h
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_tim.h
+	"stm32f1xx_hal_def.h"
+	"stm32f1xx_hal_tim_ex.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_tim_ex.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_uart.h
+	"stm32f1xx_hal_def.h"
+
+1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_usart.h
+	"stm32f1xx_hal_def.h"
+
+1463847146 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_spi.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_spi_ex.c
+	"stm32f1xx_hal.h"
+
+1464031167 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\stm32f1xx_hal_msp.c
+	"stm32f1xx_hal.h"
+
+1464031545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\main.c
+	"stm32f1xx_hal.h"
+	"FreeRTOS.h"
+	"queue.h"
+	"task.h"
+	"semphr.h"
+	"ILI9341_lib.h"
+
+1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\semphr.h
+	"queue.h"
+
+1464031497 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\ili9341_lib.h
+	"stm32f1xx_hal.h"
+	"FreeRTOS.h"
+	"queue.h"
+	"semphr.h"
+	"task.h"
+
+1463822269 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\lcdfont.h
+
+1463817981 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\stm32f1xx_it.c
+	"stm32f1xx_hal.h"
+	"stm32f1xx.h"
+	"stm32f1xx_it.h"
+
+1463817965 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\stm32f1xx_it.h
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_dma.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_tim.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_tim_ex.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_uart.c
+	"stm32f1xx_hal.h"
+
+1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_usart.c
+	"stm32f1xx_hal.h"
+
+1464031417 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\ili9341_lib.c
+	"ILI9341_lib.h"
+

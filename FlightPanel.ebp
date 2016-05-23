@@ -78,6 +78,7 @@
 		<Unit filename="HAL\Inc\stm32f1xx_hal.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_cortex.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_def.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_dma.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_flash.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_flash_ex.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_gpio.h" />
@@ -87,11 +88,19 @@
 		<Unit filename="HAL\Inc\stm32f1xx_hal_pwr.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_rcc.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_hal_rcc_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_spi.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_tim.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_tim_ex.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_uart.h" />
+		<Unit filename="HAL\Inc\stm32f1xx_hal_usart.h" />
 		<Unit filename="HAL\Inc\stm32f1xx_ll_usb.h" />
 		<Unit filename="HAL\Src\stm32f1xx_hal.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="HAL\Src\stm32f1xx_hal_cortex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_dma.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="HAL\Src\stm32f1xx_hal_flash.c">
@@ -118,16 +127,48 @@
 		<Unit filename="HAL\Src\stm32f1xx_hal_rcc_ex.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_spi_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_tim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_tim_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="HAL\Src\stm32f1xx_hal_usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="HAL\Src\stm32f1xx_ll_usb.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="inc\FreeRTOSConfig.h" />
+		<Unit filename="inc\ILI9341_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="inc\LcdFont.h" />
 		<Unit filename="inc\mxconstants.h" />
 		<Unit filename="inc\stm32f1xx_hal_conf.h" />
+		<Unit filename="inc\stm32f1xx_it.h" />
+		<Unit filename="Src\ILI9341_lib.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Src\startup_stm32f103xb.S">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\stm32f1xx_hal_msp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\stm32f1xx_it.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="STM32F103C8_FLASH.ld" />
@@ -150,11 +191,11 @@
 		<Extensions>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Debug" active_interface="ST-link">
+				<target_debugging_settings target="Release" active_interface="ST-link">
 					<debug_interface interface_id="Generic" ip_address="" ip_port="" path="" executable="" description="STM32F105xx.svd" dont_start_server="false" backoff_time="" options="2" reg_filter="0" active_family="All">
 						<family_options family_id="All" />
 					</debug_interface>
-					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="STM32F105xx.svd" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
 							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
@@ -170,11 +211,11 @@
 						</family_options>
 					</debug_interface>
 				</target_debugging_settings>
-				<target_debugging_settings target="Release" active_interface="ST-link">
+				<target_debugging_settings target="Debug" active_interface="ST-link">
 					<debug_interface interface_id="Generic" ip_address="" ip_port="" path="" executable="" description="STM32F105xx.svd" dont_start_server="false" backoff_time="" options="2" reg_filter="0" active_family="All">
 						<family_options family_id="All" />
 					</debug_interface>
-					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="STM32F103xx.svd" dont_start_server="false" backoff_time="1000" options="2" reg_filter="0" active_family="STMicroelectronics">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
 							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
