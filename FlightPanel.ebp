@@ -32,10 +32,10 @@
 				<Option compiler="armgcc_eb" />
 				<Option projectDeviceOptionsRelation="0" />
 				<Compiler>
-					<Add option="-O2" />
-					<Add option="-g2" />
 					<Add option="-fdata-sections" />
 					<Add option="-ffunction-sections" />
+					<Add option="-Ofast" />
+					<Add option="-g2" />
 				</Compiler>
 				<Linker>
 					<Add option="-Wl,--gc-sections" />

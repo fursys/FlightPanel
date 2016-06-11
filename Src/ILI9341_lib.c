@@ -2,14 +2,173 @@
 
 
 SPI_HandleTypeDef * LCD_hspi;
+DMA_HandleTypeDef * LCD_DMA;
 xQueueHandle LCD_queue;
 xSemaphoreHandle LCD_send_Semaphore;
+uint8_t * DMA_array_for_clear;
 
 void LCD_Send (uint8_t cmd, uint8_t * data, uint32_t len);
-static void LCD_task( void *pvParameters );
 void LCD_HW_Init (void);
 //------------------------------------------------------------------------------------------------
+void LCD_FillRegion (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
+{
+    lcd_frame frame;
+    uint32_t frame_size;
 
+    if((x >= WIDTH) || (y >= HEIGHT)) return;
+	if((x + w - 1) >= WIDTH)  w = WIDTH  - x;
+	if((y + h - 1) >= HEIGHT) h = HEIGHT - y;
+    frame_size = w*h;
+
+
+    frame.command = ILI9341_COLUMN_ADDR;
+    frame.frameType = LCD_COMMAND_FRAME;
+    frame.lenght = 4;
+    frame.frame_array = pvPortMalloc(4);
+    frame.frame_array[0] = (x >> 8) | (x << 8);;
+    frame.frame_array[1] = ((x+w-1) >> 8) | ((x+w-1) << 8);
+
+    xQueueSendToBack (LCD_queue, &frame, portMAX_DELAY);
+
+    frame.command = ILI9341_PAGE_ADDR;
+    frame.frame_array = pvPortMalloc(4);
+    frame.frame_array[0] = (y >> 8) | (y << 8);;
+    frame.frame_array[1] = ((y+h-1) >> 8) | ((y+h-1) << 8);
+    xQueueSendToBack (LCD_queue, &frame, portMAX_DELAY);
+
+	frame.command = ILI9341_GRAM;
+	frame.frameType = LCD_COLOR_FRAME;
+	frame.color = color;
+	frame.frame_array = 0;
+
+    while (frame_size > 0xFFFF)
+    {
+        frame.lenght = 0xFFFF;
+        xQueueSendToBack (LCD_queue, &frame, portMAX_DELAY);
+        frame_size -= 0xFFFF;
+        frame.command = 0;
+    }
+    frame.lenght = frame_size;
+    xQueueSendToBack (LCD_queue, &frame, portMAX_DELAY);
+}
+//------------------------------------------------------------------------------------------------
+void LCD_DrawRectangle (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color, uint16_t lineWidth)
+{
+    LCD_FillRegion (x,y,w,lineWidth,color);
+    LCD_FillRegion (x,y,lineWidth,h,color);
+    LCD_FillRegion (x+w-lineWidth,y,lineWidth,h,color);
+    LCD_FillRegion (x,y+h-lineWidth,w,lineWidth,color);
+}
+//------------------------------------------------------------------------------------------------
+void LCD_DrawPixel (int16_t x, int16_t y, uint16_t color, uint16_t pSize)
+{
+    uint16_t w = pSize/2;
+    LCD_FillRegion (x-w,y-w,pSize,pSize,color);
+}
+//------------------------------------------------------------------------------------------------
+void LCD_DrawLine (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color, uint16_t lineWidth)
+{
+    uint16_t lw = lineWidth/2;
+	if (y0 == y1)
+    {
+		if (x1 > x0)
+        {
+            LCD_FillRegion(x0,y0-lw,x1-x0,lineWidth,color);
+		}
+		else if (x1 < x0)
+		{
+		    LCD_FillRegion(x1,y0-lw,x0-x1,lineWidth,color);
+		}
+		else
+		{
+			LCD_FillRegion (x0-lw,y0-lw,lineWidth,lineWidth,color);
+		}
+		return;
+	}
+	else if (x0 == x1)
+	{
+		if (y1 > y0)
+        {
+            LCD_FillRegion(x0-lw,y0,lineWidth,y1-y0,color);
+		}
+		else
+        {
+			LCD_FillRegion(x0-lw,y1,lineWidth,y0-y1,color);
+		}
+		return;
+	}
+
+
+
+	uint8_t steep = fabs(y1 - y0) > fabs(x1 - x0);
+	if (steep) {
+		SWAP(x0, y0);
+		SWAP(x1, y1);
+	}
+	if (x0 > x1) {
+		SWAP(x0, x1);
+		SWAP(y0, y1);
+	}
+
+	int16_t dx, dy;
+	dx = x1 - x0;
+	dy = fabs(y1 - y0);
+
+	int16_t err = dx / 2;
+	int16_t ystep;
+	if (y0 < y1) ystep = 1;
+	else ystep = -1;
+
+	int16_t xbegin = x0;
+	if (steep)
+    {
+		for (; x0<=x1; x0++)
+        {
+			err -= dy;
+			if (err < 0)
+            {
+				int16_t len = x0 - xbegin;
+				if (len)
+				{
+					LCD_FillRegion(y0, xbegin, 1, len + 1, color);
+				}
+                else
+				{
+					LCD_FillRegion(y0, x0, 1, 1, color);
+				}
+				xbegin = x0 + 1;
+				y0 += ystep;
+				err += dx;
+			}
+		}
+		if (x0 > xbegin + 1)
+        {
+			LCD_FillRegion(y0, xbegin, 1, x0 - xbegin, color);
+		}
+
+	}
+	else
+    {
+		for (; x0<=x1; x0++) {
+			err -= dy;
+			if (err < 0) {
+				int16_t len = x0 - xbegin;
+				if (len) {
+					LCD_FillRegion(xbegin, y0, len + 1, 1, color);
+				} else {
+					LCD_FillRegion(x0, y0, 1, 1, color);
+				}
+				xbegin = x0 + 1;
+				y0 += ystep;
+				err += dx;
+			}
+		}
+		if (x0 > xbegin + 1) {
+			LCD_FillRegion(xbegin, y0, x0 - xbegin, 1, color);
+		}
+	}
+}
+//------------------------------------------------------------------------------------------------
 void LCD_SetCursorPosition(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 {
     uint8_t data [30];
@@ -28,35 +187,6 @@ void LCD_SetCursorPosition(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
     LCD_Send (ILI9341_PAGE_ADDR,data,4);
 }
 //------------------------------------------------------------------------------------------------
-void LCD_DrawPixel(uint16_t x, uint16_t y, uint16_t color)
-{
-    uint8_t data [30];
-    LCD_SetCursorPosition(x, y, x, y);
-
-    data [0] = (color >> 8);
-    data [1] = (color & 0xFF);
-    LCD_Send (ILI9341_GRAM,data,2);
-}
-//------------------------------------------------------------------------------------------------
-void LCD_DrawFilledRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color)
-{
-    uint8_t data [2];
-    uint16_t i = 0;
-    uint16_t j = 0;
-    xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
-    for(i=0;i<(y1-y0);i++)
-    {
-        LCD_SetCursorPosition(x0, y0 + i, x1, y0 + i+1);
-        LCD_Send (ILI9341_GRAM,0,0);
-        for(j=0;j<(x1-x0);j++)
-        {
-            data[0] = color >> 8;
-            data[1] = color & 0xFF;
-            LCD_Send (0, data,2);
-        }
-    }
-    xSemaphoreGive (LCD_send_Semaphore);
-}
 void LCD_FillRect (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
 {
     lcd_frame line;
@@ -89,47 +219,71 @@ void LCD_FillRect (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
 static void LCD_DataSenderTask( void *pvParameters )
 {
     lcd_frame dataframe;
-
-    xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
+    HAL_Delay(2000);
+    //xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
     LCD_HW_Init();
-    xSemaphoreGive (LCD_send_Semaphore);
+    //xSemaphoreGive (LCD_send_Semaphore);
 
     while (1)
     {
-
+        xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
         xQueueReceive (LCD_queue, &dataframe, portMAX_DELAY);
-        LCD_CS_RESET;
-        if (dataframe.command)
+
+        if (dataframe.frameType == LCD_COMMAND_FRAME)
         {
-            xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
-            LCD_DC_RESET;
+
+
+            LCD_CS_RESET;
+            LCD_DC_RESET;//send command
+            __HAL_SPI_DISABLE (LCD_hspi);
+            LCD_hspi->Instance->CR1 &= ~SPI_CR1_DFF; //set 8 bit transfer
             HAL_SPI_Transmit (LCD_hspi, &dataframe.command, 1, 1000);
-            xSemaphoreGive (LCD_send_Semaphore);
-        }
-        if (dataframe.lenght > 5)
-        {
-            LCD_DC_SET;
-            //send using DMA
-            xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
-            LCD_hspi->Instance->CR1 |= SPI_CR1_DFF;
-            HAL_SPI_Transmit_DMA(LCD_hspi, (uint8_t*) dataframe.frame_array, dataframe.lenght);
-            xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
-            vPortFree(dataframe.frame_array);
-            xSemaphoreGive (LCD_send_Semaphore);
-        }
-        else if (dataframe.lenght > 0)
-        {
-            xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
-            LCD_DC_SET;
-            LCD_hspi->Instance->CR1 |= SPI_CR1_DFF;
-            HAL_SPI_Transmit (LCD_hspi, (uint8_t*) dataframe.frame_array, dataframe.lenght, 1000);
-            vPortFree(dataframe.frame_array);
-            xSemaphoreGive (LCD_send_Semaphore);
-        }
-        LCD_CS_SET;
 
 
-    }
+            if (dataframe.lenght > 0)
+            {
+                LCD_DC_SET;//send parameters
+                HAL_SPI_Transmit (LCD_hspi, (uint8_t*) dataframe.frame_array, dataframe.lenght, 1000);
+                vPortFree(dataframe.frame_array);
+            }
+
+            LCD_CS_SET;
+            xSemaphoreGive (LCD_send_Semaphore);
+
+        }
+        else if ((dataframe.frameType == LCD_COLOR_FRAME) || (dataframe.frameType == LCD_BITMAP_FRAME))
+        {
+            //xSemaphoreTake( LCD_send_Semaphore, portMAX_DELAY);
+            LCD_CS_RESET;
+            if (dataframe.command)
+            {
+                LCD_DC_RESET;//send command
+                __HAL_SPI_DISABLE (LCD_hspi);
+                LCD_hspi->Instance->CR1 &= ~SPI_CR1_DFF; //set 8 bit transfer
+                HAL_SPI_Transmit (LCD_hspi, &dataframe.command, 1, 1000);
+            }
+
+            LCD_DC_SET;
+            __HAL_SPI_DISABLE (LCD_hspi);
+            LCD_hspi->Instance->CR1 |= SPI_CR1_DFF; //set 16 bit transfer
+
+            __HAL_DMA_DISABLE (LCD_DMA);
+            if (dataframe.frameType == LCD_COLOR_FRAME)
+            {
+                LCD_DMA->Instance->CCR &= ~DMA_CCR_MINC; //disable DMA memory increment
+                dataframe.frame_array = &dataframe.color;
+            }
+            else LCD_DMA->Instance->CCR |= DMA_CCR_MINC;
+
+            DMA_array_for_clear = (uint8_t*)dataframe.frame_array;
+            __HAL_SPI_ENABLE (LCD_hspi);
+            if (HAL_SPI_Transmit_DMA(LCD_hspi, (uint8_t*) dataframe.frame_array, dataframe.lenght) == HAL_ERROR)
+            {
+                vPortFree(dataframe.frame_array);
+            }
+
+        }
+     }
 }
 //------------------------------------------------------------------------------------------------
 
@@ -150,10 +304,11 @@ void LCD_Send (uint8_t cmd, uint8_t * data, uint32_t len)
     LCD_CS_SET;
 }
 //------------------------------------------------------------------------------------------------
-void LCD_Init(SPI_HandleTypeDef *hspi)
+void LCD_Init(SPI_HandleTypeDef *hspi, DMA_HandleTypeDef * hdma)
 {
 
     LCD_hspi = hspi;
+    LCD_DMA = hdma;
     LCD_queue = xQueueCreate (LCD_QUEUE_LEN,sizeof (lcd_frame));
     vSemaphoreCreateBinary(LCD_send_Semaphore);
 
@@ -164,20 +319,12 @@ void LCD_Init(SPI_HandleTypeDef *hspi)
 //------------------------------------------------------------------------------------------------
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
-    LCD_hspi->Instance->CR1 &= ~SPI_CR1_SPE;
-    LCD_hspi->Instance->CR1 &= ~(SPI_CR1_DFF);
-    xSemaphoreGive (LCD_send_Semaphore);
-}
-//------------------------------------------------------------------------------------------------
-static void LCD_task( void *pvParameters )
-{
-
-    while (1)
-    {
-
-        HAL_Delay(100);
-    }
-
+    BaseType_t xHigherPriorityTaskWoken;
+    LCD_CS_SET;
+    //__HAL_DMA_DISABLE (LCD_DMA); //LCD_DMA->Instance->CCR &= ~ (DMA_CCR_EN);
+    vPortFree(DMA_array_for_clear);
+    xSemaphoreGiveFromISR( LCD_send_Semaphore, &xHigherPriorityTaskWoken );
+    portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 //------------------------------------------------------------------------------------------------
 void LCD_SetOrientation (uint8_t flags)
@@ -289,7 +436,7 @@ void LCD_HW_Init (void)
     LCD_Send (ILI9341_PIXEL_FORMAT,data,1); //ILI9341_CMD_COLMOD_PIXEL_FORMAT_SET
 
 
-    LCD_SetOrientation(ILI9341_SWITCH_XY);
+    LCD_SetOrientation(ILI9341_SWITCH_XY | ILI9341_FLIP_Y);
 
 
 

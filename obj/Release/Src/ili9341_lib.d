@@ -23,4 +23,4 @@ obj\release\src\ili9341_lib.o: Src\ILI9341_lib.c inc/ILI9341_lib.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/semphr.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/queue.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/task.h \
- ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/list.h inc/LcdFont.h
+ ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/list.h

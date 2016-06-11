@@ -65,17 +65,42 @@ static void Blink1( void *pvParameters )
     //RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
     //GPIOB->CRH      |= GPIO_CRH_MODE12_1;//Output mode, max speed 2 MHz.
     //GPIOB->CRH      &= ~GPIO_CRH_CNF12;
-    LCD_FillRect(0, 0, 320, 50, Red);
-    LCD_FillRect(0, 50, 320, 50, Green);
-    LCD_FillRect(0, 100, 320, 50, Blue);
-    LCD_FillRect(0, 150, 320, 50, Cyan);
-    LCD_FillRect(0, 200, 320, 40, Magenta);
+    LCD_FillRegion(0, 0, 320, 240, Black);
+    LCD_FillRegion(0, 0, 50, 50, Red);
+    LCD_FillRegion(50, 50, 50, 50, Green);
+    LCD_FillRegion(100, 100, 50, 50, Blue);
+    LCD_FillRegion(150, 150, 50, 50, Cyan);
+    LCD_FillRegion(200, 200, 50, 40, Magenta);
+    LCD_DrawRectangle (10,10,300,220,White, 3);
+    LCD_DrawPixel(20,20,Green,3);
 
+    LCD_DrawLine (10, 20 , 320, 50, Green, 1);
+    LCD_DrawLine (10, 20 , 100, 240, Green, 1);
+    LCD_DrawLine (10, 200 , 50, 10, Green, 1);
+    LCD_DrawLine (100, 10 , 120, 230, Green, 1);
     //LCD_DrawFilledRectangle (50, 0, 80, 310, 0xFFFF);
+    int i;
 	while( 1 )
     {
-        HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin);
-        HAL_Delay (100);
+        i = 1;
+        while (i<=230)
+        {
+            LCD_DrawLine (10, i-1 , 320, i+9, Black, 1);
+            LCD_DrawLine (10, i , 320, i+10, Green, 1);
+            HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin);
+            HAL_Delay (40);
+            i+=1;
+        }
+        i-=1;
+        while (i>=0)
+        {
+            LCD_DrawLine (10, i , 320, i+10, Green, 1);
+            LCD_DrawLine (10, i+1 , 320, i+11, Black, 1);
+            HAL_GPIO_TogglePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin);
+            HAL_Delay (40);
+            i-=1;
+        }
+
 		//vTaskDelay( 100/ portTICK_RATE_MS );
 	}
 }
@@ -136,7 +161,7 @@ int main(void)
     MX_DMA_Init();
     MX_SPI1_Init();
 
-    LCD_Init(&hspi1);
+    LCD_Init(&hspi1,&hdma_spi1_tx);
 
 	xTaskCreate( Blink1,"Blink1", configMINIMAL_STACK_SIZE, NULL, Blink1_PRIORITY, NULL );
 

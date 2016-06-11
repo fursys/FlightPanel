@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="cmsis\inc\core_cm3.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10252" topLine="237" />
+		</Cursor>
+	</File>
 	<File name="cmsis\inc\stm32f103xb.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9109" topLine="135" />
+			<Cursor1 position="414115" topLine="207" />
 		</Cursor>
 	</File>
 	<File name="cmsis\inc\stm32f1xx.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="87" topLine="0" />
+			<Cursor1 position="87" topLine="181" />
+		</Cursor>
+	</File>
+	<File name="cmsis\inc\system_stm32f1xx.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="73" />
 		</Cursor>
 	</File>
 	<File name="cmsis\Src\system_stm32f1xx.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -16,19 +26,52 @@
 			<Cursor1 position="3828" topLine="60" />
 		</Cursor>
 	</File>
+	<File name="HAL\Inc\stm32f1xx_hal_def.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2704" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="HAL\Inc\stm32f1xx_hal_dma.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13753" topLine="306" />
+		</Cursor>
+	</File>
+	<File name="HAL\Inc\stm32f1xx_hal_rcc.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="68788" topLine="1326" />
+		</Cursor>
+	</File>
 	<File name="HAL\Inc\stm32f1xx_hal_spi.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="24448" topLine="605" />
+			<Cursor1 position="6523" topLine="124" />
 		</Cursor>
 	</File>
-	<File name="HAL\Src\stm32f1xx_hal_spi.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="HAL\Src\stm32f1xx_hal_dma.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="21234" topLine="429" />
+			<Cursor1 position="21078" topLine="572" />
 		</Cursor>
 	</File>
-	<File name="inc\ILI9341_lib.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="HAL\Src\stm32f1xx_hal_rcc.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="755" topLine="4" />
+			<Cursor1 position="525" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="HAL\Src\stm32f1xx_hal_spi.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="44817" topLine="1230" />
+		</Cursor>
+		<Folding>
+			<Collapse line="484" />
+		</Folding>
+	</File>
+	<File name="inc\FreeRTOSConfig.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="892" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\ILI9341_lib.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1746" topLine="43" />
 		</Cursor>
 	</File>
 	<File name="inc\LcdFont.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -38,7 +81,7 @@
 	</File>
 	<File name="inc\mxconstants.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="522" topLine="0" />
+			<Cursor1 position="524" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="inc\stm32f1xx_hal_conf.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -51,32 +94,54 @@
 			<Cursor1 position="2570" topLine="20" />
 		</Cursor>
 	</File>
-	<File name="Src\ILI9341_lib.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Src\ILI9341_lib.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="566" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="Src\main.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3744" topLine="86" />
+			<Cursor1 position="3083" topLine="94" />
 		</Cursor>
 		<Folding>
-			<Collapse line="78" />
+			<Collapse line="55" />
+			<Collapse line="63" />
+			<Collapse line="172" />
+			<Collapse line="190" />
+			<Collapse line="290" />
+			<Collapse line="307" />
+			<Collapse line="330" />
+			<Collapse line="356" />
 		</Folding>
+	</File>
+	<File name="Src\main.c" open="1" top="1" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5048" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="Src\startup_stm32f103xb.S" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3691" topLine="81" />
+		</Cursor>
 	</File>
 	<File name="Src\stm32f1xx_hal_msp.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3589" topLine="66" />
+			<Cursor1 position="3593" topLine="69" />
 		</Cursor>
 	</File>
-	<File name="Src\stm32f1xx_it.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Src\stm32f1xx_it.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3194" topLine="48" />
+			<Cursor1 position="3308" topLine="51" />
 		</Cursor>
 	</File>
-	<File name="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\tasks.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="102598" topLine="2990" />
+			<Cursor1 position="5202" topLine="95" />
+		</Cursor>
+	</File>
+	<File name="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\portable\MemMang\heap_5.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8026" topLine="149" />
+		</Cursor>
+	</File>
+	<File name="..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\tasks.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="95469" topLine="2748" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>

@@ -23,5 +23,4 @@ obj\release\src\main.o: Src\main.c HAL\Inc/stm32f1xx_hal.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/task.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/list.h \
  ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/semphr.h \
- ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/queue.h inc/ILI9341_lib.h \
- inc/LcdFont.h
+ ..\lib\FreeRTOSV8.2.3\FreeRTOS\Source\include/queue.h inc/ILI9341_lib.h

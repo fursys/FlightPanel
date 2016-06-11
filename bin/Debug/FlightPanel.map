@@ -16,6 +16,12 @@ c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/
                               c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o) (__libc_fini_array)
 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
                               c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o) (__register_exitproc)
+c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                              obj\debug\src\ili9341_lib.o (__aeabi_i2d)
+c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                              obj\debug\src\ili9341_lib.o (__aeabi_dcmpgt)
+c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                              obj\debug\src\ili9341_lib.o (__aeabi_d2iz)
 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
                               obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o (memcpy)
 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libnosys_s.a(_exit.o)
@@ -28,9 +34,12 @@ hspi2               0x58              obj\debug\src\main.o
 LCD_queue           0x4               obj\debug\src\ili9341_lib.o
 pFlash              0x20              obj\debug\hal\src\stm32f1xx_hal_flash.o
 LCD_hspi            0x4               obj\debug\src\ili9341_lib.o
+DMA_array_for_clear
+                    0x4               obj\debug\src\ili9341_lib.o
 hdma_usart1_rx      0x38              obj\debug\src\main.o
 huart1              0x40              obj\debug\src\main.o
 htim1               0x3c              obj\debug\src\main.o
+LCD_DMA             0x4               obj\debug\src\ili9341_lib.o
 LCD_send_Semaphore  0x4               obj\debug\src\ili9341_lib.o
 hspi1               0x58              obj\debug\src\main.o
 hdma_spi1_tx        0x38              obj\debug\src\main.o
@@ -262,6 +271,12 @@ Discarded input sections
  .data          0x00000000        0x0 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
  .bss           0x00000000        0x0 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
  .data          0x00000000        0x0 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .data          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .bss           0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .bss           0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .data          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .bss           0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_fixdfsi.o)
  .text          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
  .data          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
  .bss           0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
@@ -307,7 +322,7 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
                 0x08000000                g_pfnVectors
                 0x0800010c                . = ALIGN (0x4)
 
-.text           0x0800010c     0xac78
+.text           0x0800010c     0xb868
                 0x0800010c                . = ALIGN (0x4)
  *(.text)
  .text          0x0800010c       0x54 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
@@ -435,268 +450,305 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
                 0x08006af0                HAL_HalfDuplex_EnableReceiver
                 0x08006b48                HAL_UART_GetState
                 0x08006b64                HAL_UART_GetError
- .text          0x08007178      0x874 obj\debug\src\ili9341_lib.o
-                0x08007178                LCD_SetCursorPosition
-                0x080071e8                LCD_DrawPixel
-                0x0800722c                LCD_DrawFilledRectangle
-                0x080072e4                LCD_FillRect
-                0x080075a0                LCD_Send
-                0x08007624                LCD_Init
-                0x080076a0                HAL_SPI_TxCpltCallback
-                0x08007700                LCD_SetOrientation
-                0x0800775c                LCD_HW_Init
- .text          0x080079ec      0x240 obj\debug\src\main.o
-                0x08007aa0                HAL_GetTick
-                0x08007ab0                HAL_Delay
-                0x08007ad4                SystemClock_Config
-                0x08007b28                main
- .text          0x08007c2c      0x388 obj\debug\src\stm32f1xx_hal_msp.o
-                0x08007c2c                HAL_MspInit
-                0x08007c68                HAL_SPI_MspInit
-                0x08007d9c                HAL_SPI_MspDeInit
-                0x08007e08                HAL_TIM_OC_MspInit
-                0x08007e60                HAL_TIM_OC_MspDeInit
-                0x08007e9c                HAL_UART_MspInit
-                0x08007f68                HAL_UART_MspDeInit
- .text          0x08007fb4       0x30 obj\debug\src\stm32f1xx_it.o
-                0x08007fb4                DMA1_Channel3_IRQHandler
-                0x08007fc4                DMA1_Channel5_IRQHandler
-                0x08007fd4                USART1_IRQHandler
- .text          0x08007fe4      0x164 obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
-                0x08007fe4                vListInitialise
-                0x08008024                vListInitialiseItem
-                0x0800803c                vListInsertEnd
-                0x08008084                vListInsert
-                0x080080f4                uxListRemove
- .text          0x08008148      0x200 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
-                0x08008148                pxPortInitialiseStack
-                0x080081ac                SVC_Handler
-                0x080081ec                xPortStartScheduler
-                0x08008228                vPortEndScheduler
-                0x08008234                vPortYield
-                0x08008254                vPortEnterCritical
-                0x08008274                vPortExitCritical
-                0x08008298                ulPortSetInterruptMask
-                0x080082ac                vPortClearInterruptMask
-                0x080082b4                PendSV_Handler
-                0x080082f8                SysTick_Handler
-                0x08008320                vPortSetupTimerInterrupt
- .text          0x08008348      0x380 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
-                0x08008348                pvPortMalloc
-                0x08008464                vPortFree
-                0x080084d4                xPortGetFreeHeapSize
-                0x080084ec                xPortGetMinimumEverFreeHeapSize
-                0x080085b4                vPortDefineHeapRegions
- .text          0x080086c8      0x980 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
-                0x080086c8                xQueueGenericReset
-                0x0800876c                xQueueGenericCreate
-                0x080087ec                xQueueCreateMutex
-                0x08008870                xQueueCreateCountingSemaphore
-                0x0800889c                xQueueGenericSend
-                0x080089c0                xQueueGenericSendFromISR
-                0x08008a48                xQueueGiveFromISR
-                0x08008ac8                xQueueGenericReceive
-                0x08008c38                xQueueReceiveFromISR
-                0x08008cbc                xQueuePeekFromISR
-                0x08008d08                uxQueueMessagesWaiting
-                0x08008d28                uxQueueSpacesAvailable
-                0x08008d54                uxQueueMessagesWaitingFromISR
-                0x08008d70                vQueueDelete
-                0x08008d88                uxQueueGetQueueNumber
-                0x08008da0                vQueueSetQueueNumber
-                0x08008dbc                ucQueueGetQueueType
-                0x08008fc4                xQueueIsQueueEmptyFromISR
-                0x0800901c                xQueueIsQueueFullFromISR
- .text          0x08009048     0x1aec obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
-                0x08009048                xTaskGenericCreate
-                0x08009184                vTaskDelete
-                0x08009258                vTaskDelayUntil
-                0x08009310                vTaskDelay
-                0x08009384                uxTaskPriorityGet
-                0x080093b8                uxTaskPriorityGetFromISR
-                0x080093f0                vTaskPrioritySet
-                0x08009520                vTaskSuspend
-                0x0800965c                vTaskResume
-                0x080096e8                xTaskResumeFromISR
-                0x08009790                vTaskStartScheduler
-                0x080097f0                vTaskEndScheduler
-                0x08009808                vTaskSuspendAll
-                0x08009824                xTaskResumeAll
-                0x08009920                xTaskGetTickCount
-                0x08009940                xTaskGetTickCountFromISR
-                0x08009964                uxTaskGetNumberOfTasks
-                0x0800997c                uxTaskGetSystemState
-                0x08009a74                xTaskIncrementTick
-                0x08009bd0                vTaskSwitchContext
-                0x08009c5c                vTaskPlaceOnEventList
-                0x08009cdc                vTaskPlaceOnUnorderedEventList
-                0x08009d6c                xTaskRemoveFromEventList
-                0x08009e14                xTaskRemoveFromUnorderedEventList
-                0x08009ea4                vTaskSetTimeOutState
-                0x08009ed0                xTaskCheckForTimeOut
-                0x08009f58                vTaskMissedYield
-                0x08009f70                uxTaskGetTaskNumber
-                0x08009f9c                vTaskSetTaskNumber
-                0x0800a408                xTaskGetCurrentTaskHandle
-                0x0800a428                vTaskPriorityInherit
-                0x0800a514                xTaskPriorityDisinherit
-                0x0800a5dc                uxTaskResetEventItemValue
-                0x0800a60c                pvTaskIncrementMutexHeldCount
-                0x0800a634                ulTaskNotifyTake
-                0x0800a70c                xTaskNotifyWait
-                0x0800a808                xTaskGenericNotify
-                0x0800a904                xTaskGenericNotifyFromISR
-                0x0800aa28                vTaskNotifyGiveFromISR
-                0x0800aae4                xTaskNotifyStateClear
+ .text          0x08007178      0xe48 obj\debug\src\ili9341_lib.o
+                0x08007178                LCD_FillRegion
+                0x08007324                LCD_DrawRectangle
+                0x080073b4                LCD_DrawPixel
+                0x080073f8                LCD_DrawLine
+                0x080077b8                LCD_SetCursorPosition
+                0x08007828                LCD_FillRect
+                0x08007b78                LCD_Send
+                0x08007bfc                LCD_Init
+                0x08007c84                HAL_SPI_TxCpltCallback
+                0x08007cd4                LCD_SetOrientation
+                0x08007d30                LCD_HW_Init
+ .text          0x08007fc0      0x38c obj\debug\src\main.o
+                0x080081bc                HAL_GetTick
+                0x080081cc                HAL_Delay
+                0x080081f0                SystemClock_Config
+                0x08008244                main
+ .text          0x0800834c      0x388 obj\debug\src\stm32f1xx_hal_msp.o
+                0x0800834c                HAL_MspInit
+                0x08008388                HAL_SPI_MspInit
+                0x080084bc                HAL_SPI_MspDeInit
+                0x08008528                HAL_TIM_OC_MspInit
+                0x08008580                HAL_TIM_OC_MspDeInit
+                0x080085bc                HAL_UART_MspInit
+                0x08008688                HAL_UART_MspDeInit
+ .text          0x080086d4       0x30 obj\debug\src\stm32f1xx_it.o
+                0x080086d4                DMA1_Channel3_IRQHandler
+                0x080086e4                DMA1_Channel5_IRQHandler
+                0x080086f4                USART1_IRQHandler
+ .text          0x08008704      0x164 obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+                0x08008704                vListInitialise
+                0x08008744                vListInitialiseItem
+                0x0800875c                vListInsertEnd
+                0x080087a4                vListInsert
+                0x08008814                uxListRemove
+ .text          0x08008868      0x200 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+                0x08008868                pxPortInitialiseStack
+                0x080088cc                SVC_Handler
+                0x0800890c                xPortStartScheduler
+                0x08008948                vPortEndScheduler
+                0x08008954                vPortYield
+                0x08008974                vPortEnterCritical
+                0x08008994                vPortExitCritical
+                0x080089b8                ulPortSetInterruptMask
+                0x080089cc                vPortClearInterruptMask
+                0x080089d4                PendSV_Handler
+                0x08008a18                SysTick_Handler
+                0x08008a40                vPortSetupTimerInterrupt
+ .text          0x08008a68      0x380 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+                0x08008a68                pvPortMalloc
+                0x08008b84                vPortFree
+                0x08008bf4                xPortGetFreeHeapSize
+                0x08008c0c                xPortGetMinimumEverFreeHeapSize
+                0x08008cd4                vPortDefineHeapRegions
+ .text          0x08008de8      0x980 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+                0x08008de8                xQueueGenericReset
+                0x08008e8c                xQueueGenericCreate
+                0x08008f0c                xQueueCreateMutex
+                0x08008f90                xQueueCreateCountingSemaphore
+                0x08008fbc                xQueueGenericSend
+                0x080090e0                xQueueGenericSendFromISR
+                0x08009168                xQueueGiveFromISR
+                0x080091e8                xQueueGenericReceive
+                0x08009358                xQueueReceiveFromISR
+                0x080093dc                xQueuePeekFromISR
+                0x08009428                uxQueueMessagesWaiting
+                0x08009448                uxQueueSpacesAvailable
+                0x08009474                uxQueueMessagesWaitingFromISR
+                0x08009490                vQueueDelete
+                0x080094a8                uxQueueGetQueueNumber
+                0x080094c0                vQueueSetQueueNumber
+                0x080094dc                ucQueueGetQueueType
+                0x080096e4                xQueueIsQueueEmptyFromISR
+                0x0800973c                xQueueIsQueueFullFromISR
+ .text          0x08009768     0x1aec obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+                0x08009768                xTaskGenericCreate
+                0x080098a4                vTaskDelete
+                0x08009978                vTaskDelayUntil
+                0x08009a30                vTaskDelay
+                0x08009aa4                uxTaskPriorityGet
+                0x08009ad8                uxTaskPriorityGetFromISR
+                0x08009b10                vTaskPrioritySet
+                0x08009c40                vTaskSuspend
+                0x08009d7c                vTaskResume
+                0x08009e08                xTaskResumeFromISR
+                0x08009eb0                vTaskStartScheduler
+                0x08009f10                vTaskEndScheduler
+                0x08009f28                vTaskSuspendAll
+                0x08009f44                xTaskResumeAll
+                0x0800a040                xTaskGetTickCount
+                0x0800a060                xTaskGetTickCountFromISR
+                0x0800a084                uxTaskGetNumberOfTasks
+                0x0800a09c                uxTaskGetSystemState
+                0x0800a194                xTaskIncrementTick
+                0x0800a2f0                vTaskSwitchContext
+                0x0800a37c                vTaskPlaceOnEventList
+                0x0800a3fc                vTaskPlaceOnUnorderedEventList
+                0x0800a48c                xTaskRemoveFromEventList
+                0x0800a534                xTaskRemoveFromUnorderedEventList
+                0x0800a5c4                vTaskSetTimeOutState
+                0x0800a5f0                xTaskCheckForTimeOut
+                0x0800a678                vTaskMissedYield
+                0x0800a690                uxTaskGetTaskNumber
+                0x0800a6bc                vTaskSetTaskNumber
+                0x0800ab28                xTaskGetCurrentTaskHandle
+                0x0800ab48                vTaskPriorityInherit
+                0x0800ac34                xTaskPriorityDisinherit
+                0x0800acfc                uxTaskResetEventItemValue
+                0x0800ad2c                pvTaskIncrementMutexHeldCount
+                0x0800ad54                ulTaskNotifyTake
+                0x0800ae2c                xTaskNotifyWait
+                0x0800af28                xTaskGenericNotify
+                0x0800b024                xTaskGenericNotifyFromISR
+                0x0800b148                vTaskNotifyGiveFromISR
+                0x0800b204                xTaskNotifyStateClear
+ .text          0x0800b254      0x370 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x0800b254                __aeabi_drsub
+                0x0800b25c                __aeabi_dsub
+                0x0800b25c                __subdf3
+                0x0800b260                __aeabi_dadd
+                0x0800b260                __adddf3
+                0x0800b4d8                __floatunsidf
+                0x0800b4d8                __aeabi_ui2d
+                0x0800b4f8                __floatsidf
+                0x0800b4f8                __aeabi_i2d
+                0x0800b51c                __aeabi_f2d
+                0x0800b51c                __extendsfdf2
+                0x0800b558                __floatundidf
+                0x0800b558                __aeabi_ul2d
+                0x0800b568                __floatdidf
+                0x0800b568                __aeabi_l2d
+ .text          0x0800b5c4      0x110 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                0x0800b5c4                __gtdf2
+                0x0800b5c4                __gedf2
+                0x0800b5cc                __ltdf2
+                0x0800b5cc                __ledf2
+                0x0800b5d4                __nedf2
+                0x0800b5d4                __eqdf2
+                0x0800b5d4                __cmpdf2
+                0x0800b650                __aeabi_cdrcmple
+                0x0800b660                __aeabi_cdcmpeq
+                0x0800b660                __aeabi_cdcmple
+                0x0800b670                __aeabi_dcmpeq
+                0x0800b684                __aeabi_dcmplt
+                0x0800b698                __aeabi_dcmple
+                0x0800b6ac                __aeabi_dcmpge
+                0x0800b6c0                __aeabi_dcmpgt
+ .text          0x0800b6d4       0x50 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_fixdfsi.o)
+                0x0800b6d4                __aeabi_d2iz
+                0x0800b6d4                __fixdfsi
  *(.text*)
  .text.__libc_init_array
-                0x0800ab34       0x50 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-init.o)
-                0x0800ab34                __libc_init_array
- .text.memset   0x0800ab84       0x94 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
-                0x0800ab84                memset
+                0x0800b724       0x50 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-init.o)
+                0x0800b724                __libc_init_array
+ .text.memset   0x0800b774       0x94 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-memset.o)
+                0x0800b774                memset
  .text.startup.register_fini
-                0x0800ac18       0x14 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x0800ac2c        0xc c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
-                0x0800ac2c                atexit
+                0x0800b808       0x14 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x0800b81c        0xc c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-atexit.o)
+                0x0800b81c                atexit
  .text.__libc_fini_array
-                0x0800ac38       0x30 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
-                0x0800ac38                __libc_fini_array
+                0x0800b828       0x30 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-fini.o)
+                0x0800b828                __libc_fini_array
  .text.__register_exitproc
-                0x0800ac68       0xa8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
-                0x0800ac68                __register_exitproc
+                0x0800b858       0xa8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__atexit.o)
+                0x0800b858                __register_exitproc
  .text.Reset_Handler
-                0x0800ad10       0x48 obj\debug\src\startup_stm32f103xb.o
-                0x0800ad10                Reset_Handler
+                0x0800b900       0x48 obj\debug\src\startup_stm32f103xb.o
+                0x0800b900                Reset_Handler
  .text.Default_Handler
-                0x0800ad58        0x2 obj\debug\src\startup_stm32f103xb.o
-                0x0800ad58                RTC_Alarm_IRQHandler
-                0x0800ad58                EXTI2_IRQHandler
-                0x0800ad58                DebugMon_Handler
-                0x0800ad58                TIM1_CC_IRQHandler
-                0x0800ad58                HardFault_Handler
-                0x0800ad58                PVD_IRQHandler
-                0x0800ad58                NMI_Handler
-                0x0800ad58                EXTI3_IRQHandler
-                0x0800ad58                EXTI0_IRQHandler
-                0x0800ad58                I2C2_EV_IRQHandler
-                0x0800ad58                UsageFault_Handler
-                0x0800ad58                ADC1_2_IRQHandler
-                0x0800ad58                SPI1_IRQHandler
-                0x0800ad58                TAMPER_IRQHandler
-                0x0800ad58                DMA1_Channel4_IRQHandler
-                0x0800ad58                USART3_IRQHandler
-                0x0800ad58                RTC_IRQHandler
-                0x0800ad58                DMA1_Channel7_IRQHandler
-                0x0800ad58                CAN1_RX1_IRQHandler
-                0x0800ad58                TIM4_IRQHandler
-                0x0800ad58                I2C1_EV_IRQHandler
-                0x0800ad58                DMA1_Channel6_IRQHandler
-                0x0800ad58                TIM3_IRQHandler
-                0x0800ad58                RCC_IRQHandler
-                0x0800ad58                TIM1_TRG_COM_IRQHandler
-                0x0800ad58                DMA1_Channel1_IRQHandler
-                0x0800ad58                Default_Handler
-                0x0800ad58                EXTI15_10_IRQHandler
-                0x0800ad58                EXTI9_5_IRQHandler
-                0x0800ad58                SPI2_IRQHandler
-                0x0800ad58                MemManage_Handler
-                0x0800ad58                EXTI4_IRQHandler
-                0x0800ad58                USB_LP_CAN1_RX0_IRQHandler
-                0x0800ad58                USB_HP_CAN1_TX_IRQHandler
-                0x0800ad58                TIM1_UP_IRQHandler
-                0x0800ad58                WWDG_IRQHandler
-                0x0800ad58                TIM2_IRQHandler
-                0x0800ad58                TIM1_BRK_IRQHandler
-                0x0800ad58                EXTI1_IRQHandler
-                0x0800ad58                USART2_IRQHandler
-                0x0800ad58                I2C2_ER_IRQHandler
-                0x0800ad58                DMA1_Channel2_IRQHandler
-                0x0800ad58                CAN1_SCE_IRQHandler
-                0x0800ad58                FLASH_IRQHandler
-                0x0800ad58                BusFault_Handler
-                0x0800ad58                I2C1_ER_IRQHandler
-                0x0800ad58                USBWakeUp_IRQHandler
- .text.memcpy   0x0800ad5a       0x12 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
-                0x0800ad5a                memcpy
+                0x0800b948        0x2 obj\debug\src\startup_stm32f103xb.o
+                0x0800b948                RTC_Alarm_IRQHandler
+                0x0800b948                EXTI2_IRQHandler
+                0x0800b948                DebugMon_Handler
+                0x0800b948                TIM1_CC_IRQHandler
+                0x0800b948                HardFault_Handler
+                0x0800b948                PVD_IRQHandler
+                0x0800b948                NMI_Handler
+                0x0800b948                EXTI3_IRQHandler
+                0x0800b948                EXTI0_IRQHandler
+                0x0800b948                I2C2_EV_IRQHandler
+                0x0800b948                UsageFault_Handler
+                0x0800b948                ADC1_2_IRQHandler
+                0x0800b948                SPI1_IRQHandler
+                0x0800b948                TAMPER_IRQHandler
+                0x0800b948                DMA1_Channel4_IRQHandler
+                0x0800b948                USART3_IRQHandler
+                0x0800b948                RTC_IRQHandler
+                0x0800b948                DMA1_Channel7_IRQHandler
+                0x0800b948                CAN1_RX1_IRQHandler
+                0x0800b948                TIM4_IRQHandler
+                0x0800b948                I2C1_EV_IRQHandler
+                0x0800b948                DMA1_Channel6_IRQHandler
+                0x0800b948                TIM3_IRQHandler
+                0x0800b948                RCC_IRQHandler
+                0x0800b948                TIM1_TRG_COM_IRQHandler
+                0x0800b948                DMA1_Channel1_IRQHandler
+                0x0800b948                Default_Handler
+                0x0800b948                EXTI15_10_IRQHandler
+                0x0800b948                EXTI9_5_IRQHandler
+                0x0800b948                SPI2_IRQHandler
+                0x0800b948                MemManage_Handler
+                0x0800b948                EXTI4_IRQHandler
+                0x0800b948                USB_LP_CAN1_RX0_IRQHandler
+                0x0800b948                USB_HP_CAN1_TX_IRQHandler
+                0x0800b948                TIM1_UP_IRQHandler
+                0x0800b948                WWDG_IRQHandler
+                0x0800b948                TIM2_IRQHandler
+                0x0800b948                TIM1_BRK_IRQHandler
+                0x0800b948                EXTI1_IRQHandler
+                0x0800b948                USART2_IRQHandler
+                0x0800b948                I2C2_ER_IRQHandler
+                0x0800b948                DMA1_Channel2_IRQHandler
+                0x0800b948                CAN1_SCE_IRQHandler
+                0x0800b948                FLASH_IRQHandler
+                0x0800b948                BusFault_Handler
+                0x0800b948                I2C1_ER_IRQHandler
+                0x0800b948                USBWakeUp_IRQHandler
+ .text.memcpy   0x0800b94a       0x12 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
+                0x0800b94a                memcpy
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800ad6c        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
+ .eh_frame      0x0800b95c        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
  *(.init)
- .init          0x0800ad6c        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crti.o
-                0x0800ad6c                _init
- .init          0x0800ad70        0x8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
+ .init          0x0800b95c        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crti.o
+                0x0800b95c                _init
+ .init          0x0800b960        0x8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
  *(.fini)
- .fini          0x0800ad78        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crti.o
-                0x0800ad78                _fini
- .fini          0x0800ad7c        0x8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
-                0x0800ad84                . = ALIGN (0x4)
-                0x0800ad84                _etext = .
+ .fini          0x0800b968        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crti.o
+                0x0800b968                _fini
+ .fini          0x0800b96c        0x8 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
+                0x0800b974                . = ALIGN (0x4)
+                0x0800b974                _etext = .
 
-.vfp11_veneer   0x0800ad84        0x0
+.vfp11_veneer   0x0800b974        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0800ad84        0x0
+.v4_bx          0x0800b974        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0800ad84        0x0
+.iplt           0x0800b974        0x0
  .iplt          0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
 
-.rodata         0x0800ad84       0x70
-                0x0800ad84                . = ALIGN (0x4)
+.rodata         0x0800b974       0x70
+                0x0800b974                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0800ad84       0x10 obj\debug\cmsis\src\system_stm32f1xx.o
-                0x0800ad84                AHBPrescTable
- .rodata        0x0800ad94       0x24 obj\debug\hal\src\stm32f1xx_hal_rcc.o
-                0x0800ad94                aAPBAHBPrescTable
- .rodata        0x0800adb8       0x14 obj\debug\src\ili9341_lib.o
- .rodata        0x0800adcc       0x18 obj\debug\src\main.o
-                0x0800adcc                xHeapRegions
- .rodata        0x0800ade4        0x8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .rodata        0x0800b974       0x10 obj\debug\cmsis\src\system_stm32f1xx.o
+                0x0800b974                AHBPrescTable
+ .rodata        0x0800b984       0x24 obj\debug\hal\src\stm32f1xx_hal_rcc.o
+                0x0800b984                aAPBAHBPrescTable
+ .rodata        0x0800b9a8       0x14 obj\debug\src\ili9341_lib.o
+ .rodata        0x0800b9bc       0x18 obj\debug\src\main.o
+                0x0800b9bc                xHeapRegions
+ .rodata        0x0800b9d4        0x8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
  *(.rodata*)
  .rodata.str1.4
-                0x0800adec        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
+                0x0800b9dc        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x0800adf0        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
-                0x0800adf0                _global_impure_ptr
-                0x0800adf4                . = ALIGN (0x4)
+                0x0800b9e0        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-impure.o)
+                0x0800b9e0                _global_impure_ptr
+                0x0800b9e4                . = ALIGN (0x4)
 
-.rel.dyn        0x0800adf4        0x0
+.rel.dyn        0x0800b9e4        0x0
  .rel.iplt      0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0800adf4        0x0
-                0x0800adf4                __exidx_start = .
+.ARM            0x0800b9e4        0x0
+                0x0800b9e4                __exidx_start = .
  *(.ARM.exidx*)
-                0x0800adf4                __exidx_end = .
+                0x0800b9e4                __exidx_end = .
 
-.preinit_array  0x0800adf4        0x0
-                0x0800adf4                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0800b9e4        0x0
+                0x0800b9e4                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0800adf4                PROVIDE (__preinit_array_end, .)
+                0x0800b9e4                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0800adf4        0x8
-                0x0800adf4                PROVIDE (__init_array_start, .)
+.init_array     0x0800b9e4        0x8
+                0x0800b9e4                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  .init_array.00000
-                0x0800adf4        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
+                0x0800b9e4        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0800adf8        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
-                0x0800adfc                PROVIDE (__init_array_end, .)
+ .init_array    0x0800b9e8        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
+                0x0800b9ec                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0800adfc        0x4
-                0x0800adfc                PROVIDE (__fini_array_start, .)
+.fini_array     0x0800b9ec        0x4
+                0x0800b9ec                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800adfc        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
-                0x0800ae00                PROVIDE (__fini_array_end, .)
-                0x0800ae00                _sidata = LOADADDR (.data)
+ .fini_array    0x0800b9ec        0x4 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
+                0x0800b9f0                PROVIDE (__fini_array_end, .)
+                0x0800b9f0                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x430 load address 0x0800ae00
+.data           0x20000000      0x430 load address 0x0800b9f0
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -709,14 +761,14 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
                 0x20000430                . = ALIGN (0x4)
                 0x20000430                _edata = .
 
-.jcr            0x20000430        0x0 load address 0x0800b230
+.jcr            0x20000430        0x0 load address 0x0800be20
  .jcr           0x20000430        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
 
-.igot.plt       0x20000430        0x0 load address 0x0800b230
+.igot.plt       0x20000430        0x0 load address 0x0800be20
  .igot.plt      0x00000000        0x0 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtbegin.o
                 0x20000430                . = ALIGN (0x4)
 
-.bss            0x20000430      0x2e4 load address 0x0800b230
+.bss            0x20000430      0x2ec load address 0x0800be20
                 0x20000430                _sbss = .
                 0x20000430                __bss_start__ = _sbss
  *(.bss)
@@ -730,30 +782,32 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
                 0x2000046c                pxCurrentTCB
  *(.bss*)
  *(COMMON)
- COMMON         0x2000056c        0xc obj\debug\src\ili9341_lib.o
+ COMMON         0x2000056c       0x14 obj\debug\src\ili9341_lib.o
                 0x2000056c                LCD_queue
                 0x20000570                LCD_hspi
-                0x20000574                LCD_send_Semaphore
- COMMON         0x20000578      0x19c obj\debug\src\main.o
-                0x20000578                hspi2
-                0x200005d0                hdma_usart1_rx
-                0x20000608                huart1
-                0x20000648                htim1
-                0x20000684                hspi1
-                0x200006dc                hdma_spi1_tx
-                0x20000714                . = ALIGN (0x4)
-                0x20000714                _ebss = .
-                0x20000714                __bss_end__ = _ebss
+                0x20000574                DMA_array_for_clear
+                0x20000578                LCD_DMA
+                0x2000057c                LCD_send_Semaphore
+ COMMON         0x20000580      0x19c obj\debug\src\main.o
+                0x20000580                hspi2
+                0x200005d8                hdma_usart1_rx
+                0x20000610                huart1
+                0x20000650                htim1
+                0x2000068c                hspi1
+                0x200006e4                hdma_spi1_tx
+                0x2000071c                . = ALIGN (0x4)
+                0x2000071c                _ebss = .
+                0x2000071c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000714      0x400 load address 0x0800b230
-                0x20000714                . = ALIGN (0x4)
-                0x20000714                PROVIDE (end, .)
-                0x20000714                PROVIDE (_end, .)
-                0x20000714                . = (. + _Min_Heap_Size)
-                0x20000b14                . = (. + _Min_Stack_Size)
- *fill*         0x20000714      0x400 
-                0x20000b14                . = ALIGN (0x4)
+                0x2000071c      0x400 load address 0x0800be20
+                0x2000071c                . = ALIGN (0x4)
+                0x2000071c                PROVIDE (end, .)
+                0x2000071c                PROVIDE (_end, .)
+                0x2000071c                . = (. + _Min_Heap_Size)
+                0x20000b1c                . = (. + _Min_Stack_Size)
+ *fill*         0x2000071c      0x400 
+                0x20000b1c                . = ALIGN (0x4)
 
 /DISCARD/
  libc.a(*)
@@ -806,9 +860,15 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
  .ARM.attributes
                 0x000003ce       0x33 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
  .ARM.attributes
-                0x00000401       0x2d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
+                0x00000401       0x1d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x0000042e       0x1d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
+                0x0000041e       0x1d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_cmpdf2.o)
+ .ARM.attributes
+                0x0000043b       0x1d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m\libgcc.a(_arm_fixdfsi.o)
+ .ARM.attributes
+                0x00000458       0x2d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
+ .ARM.attributes
+                0x00000485       0x1d c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
 LOAD obj\debug\cmsis\src\system_stm32f1xx.o
 LOAD obj\debug\hal\src\stm32f1xx_hal.o
 LOAD obj\debug\hal\src\stm32f1xx_hal_cortex.o
@@ -852,7 +912,7 @@ LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4
 LOAD c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/armv7-m/crtn.o
 OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
 
-.debug_info     0x00000000     0xbb25
+.debug_info     0x00000000     0xbd0d
  .debug_info    0x00000000      0x399 obj\debug\cmsis\src\system_stm32f1xx.o
  .debug_info    0x00000399      0x643 obj\debug\hal\src\stm32f1xx_hal.o
  .debug_info    0x000009dc      0xa9f obj\debug\hal\src\stm32f1xx_hal_cortex.o
@@ -862,18 +922,18 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .debug_info    0x00004606      0xe7d obj\debug\hal\src\stm32f1xx_hal_spi.o
  .debug_info    0x00005483      0x574 obj\debug\hal\src\stm32f1xx_hal_spi_ex.o
  .debug_info    0x000059f7      0xdd5 obj\debug\hal\src\stm32f1xx_hal_uart.o
- .debug_info    0x000067cc      0xa20 obj\debug\src\ili9341_lib.o
- .debug_info    0x000071ec      0xe9e obj\debug\src\main.o
- .debug_info    0x0000808a       0x64 obj\debug\src\startup_stm32f103xb.o
- .debug_info    0x000080ee      0xd7a obj\debug\src\stm32f1xx_hal_msp.o
- .debug_info    0x00008e68      0x4cb obj\debug\src\stm32f1xx_it.o
- .debug_info    0x00009333      0x29d obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
- .debug_info    0x000095d0      0x238 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
- .debug_info    0x00009808      0x346 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
- .debug_info    0x00009b4e      0xa71 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
- .debug_info    0x0000a5bf     0x1566 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .debug_info    0x000067cc      0xbe7 obj\debug\src\ili9341_lib.o
+ .debug_info    0x000073b3      0xebf obj\debug\src\main.o
+ .debug_info    0x00008272       0x64 obj\debug\src\startup_stm32f103xb.o
+ .debug_info    0x000082d6      0xd7a obj\debug\src\stm32f1xx_hal_msp.o
+ .debug_info    0x00009050      0x4cb obj\debug\src\stm32f1xx_it.o
+ .debug_info    0x0000951b      0x29d obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+ .debug_info    0x000097b8      0x238 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+ .debug_info    0x000099f0      0x346 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+ .debug_info    0x00009d36      0xa71 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+ .debug_info    0x0000a7a7     0x1566 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
 
-.debug_abbrev   0x00000000     0x1e60
+.debug_abbrev   0x00000000     0x1ec1
  .debug_abbrev  0x00000000      0x120 obj\debug\cmsis\src\system_stm32f1xx.o
  .debug_abbrev  0x00000120      0x1fe obj\debug\hal\src\stm32f1xx_hal.o
  .debug_abbrev  0x0000031e      0x265 obj\debug\hal\src\stm32f1xx_hal_cortex.o
@@ -883,16 +943,16 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .debug_abbrev  0x00000b96      0x20a obj\debug\hal\src\stm32f1xx_hal_spi.o
  .debug_abbrev  0x00000da0      0x14f obj\debug\hal\src\stm32f1xx_hal_spi_ex.o
  .debug_abbrev  0x00000eef      0x215 obj\debug\hal\src\stm32f1xx_hal_uart.o
- .debug_abbrev  0x00001104      0x191 obj\debug\src\ili9341_lib.o
- .debug_abbrev  0x00001295      0x1b7 obj\debug\src\main.o
- .debug_abbrev  0x0000144c       0x12 obj\debug\src\startup_stm32f103xb.o
- .debug_abbrev  0x0000145e      0x19c obj\debug\src\stm32f1xx_hal_msp.o
- .debug_abbrev  0x000015fa      0x111 obj\debug\src\stm32f1xx_it.o
- .debug_abbrev  0x0000170b       0xbe obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
- .debug_abbrev  0x000017c9      0x162 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
- .debug_abbrev  0x0000192b      0x148 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
- .debug_abbrev  0x00001a73      0x177 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
- .debug_abbrev  0x00001bea      0x276 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .debug_abbrev  0x00001104      0x1e3 obj\debug\src\ili9341_lib.o
+ .debug_abbrev  0x000012e7      0x1c6 obj\debug\src\main.o
+ .debug_abbrev  0x000014ad       0x12 obj\debug\src\startup_stm32f103xb.o
+ .debug_abbrev  0x000014bf      0x19c obj\debug\src\stm32f1xx_hal_msp.o
+ .debug_abbrev  0x0000165b      0x111 obj\debug\src\stm32f1xx_it.o
+ .debug_abbrev  0x0000176c       0xbe obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+ .debug_abbrev  0x0000182a      0x162 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+ .debug_abbrev  0x0000198c      0x148 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+ .debug_abbrev  0x00001ad4      0x177 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+ .debug_abbrev  0x00001c4b      0x276 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
 
 .debug_aranges  0x00000000      0x268
  .debug_aranges
@@ -934,7 +994,7 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .debug_aranges
                 0x00000248       0x20 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
 
-.debug_line     0x00000000     0x4840
+.debug_line     0x00000000     0x48db
  .debug_line    0x00000000      0x15d obj\debug\cmsis\src\system_stm32f1xx.o
  .debug_line    0x0000015d      0x208 obj\debug\hal\src\stm32f1xx_hal.o
  .debug_line    0x00000365      0x27e obj\debug\hal\src\stm32f1xx_hal_cortex.o
@@ -944,18 +1004,18 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .debug_line    0x00001d28      0x77d obj\debug\hal\src\stm32f1xx_hal_spi.o
  .debug_line    0x000024a5      0x18e obj\debug\hal\src\stm32f1xx_hal_spi_ex.o
  .debug_line    0x00002633      0x5ef obj\debug\hal\src\stm32f1xx_hal_uart.o
- .debug_line    0x00002c22      0x359 obj\debug\src\ili9341_lib.o
- .debug_line    0x00002f7b      0x31d obj\debug\src\main.o
- .debug_line    0x00003298       0x76 obj\debug\src\startup_stm32f103xb.o
- .debug_line    0x0000330e      0x20d obj\debug\src\stm32f1xx_hal_msp.o
- .debug_line    0x0000351b      0x16f obj\debug\src\stm32f1xx_it.o
- .debug_line    0x0000368a      0x1c7 obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
- .debug_line    0x00003851      0x1c8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
- .debug_line    0x00003a19      0x2a4 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
- .debug_line    0x00003cbd      0x3f8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
- .debug_line    0x000040b5      0x78b obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .debug_line    0x00002c22      0x3d9 obj\debug\src\ili9341_lib.o
+ .debug_line    0x00002ffb      0x338 obj\debug\src\main.o
+ .debug_line    0x00003333       0x76 obj\debug\src\startup_stm32f103xb.o
+ .debug_line    0x000033a9      0x20d obj\debug\src\stm32f1xx_hal_msp.o
+ .debug_line    0x000035b6      0x16f obj\debug\src\stm32f1xx_it.o
+ .debug_line    0x00003725      0x1c7 obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+ .debug_line    0x000038ec      0x1c8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+ .debug_line    0x00003ab4      0x2a4 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+ .debug_line    0x00003d58      0x3f8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+ .debug_line    0x00004150      0x78b obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
 
-.debug_str      0x00000000     0x33d0
+.debug_str      0x00000000     0x343d
  .debug_str     0x00000000      0x202 obj\debug\cmsis\src\system_stm32f1xx.o
                                 0x26d (size before relaxing)
  .debug_str     0x00000202      0x50f obj\debug\hal\src\stm32f1xx_hal.o
@@ -974,23 +1034,23 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
                                 0x58d (size before relaxing)
  .debug_str     0x00001678      0x4aa obj\debug\hal\src\stm32f1xx_hal_uart.o
                                 0x8d8 (size before relaxing)
- .debug_str     0x00001b22      0x178 obj\debug\src\ili9341_lib.o
-                                0x733 (size before relaxing)
- .debug_str     0x00001c9a      0x25b obj\debug\src\main.o
-                                0xd6f (size before relaxing)
- .debug_str     0x00001ef5       0x48 obj\debug\src\stm32f1xx_hal_msp.o
+ .debug_str     0x00001b22      0x1e5 obj\debug\src\ili9341_lib.o
+                                0x7f7 (size before relaxing)
+ .debug_str     0x00001d07      0x25b obj\debug\src\main.o
+                                0xd88 (size before relaxing)
+ .debug_str     0x00001f62       0x48 obj\debug\src\stm32f1xx_hal_msp.o
                                 0xc19 (size before relaxing)
- .debug_str     0x00001f3d       0x57 obj\debug\src\stm32f1xx_it.o
+ .debug_str     0x00001faa       0x57 obj\debug\src\stm32f1xx_it.o
                                 0x53b (size before relaxing)
- .debug_str     0x00001f94      0x14a obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+ .debug_str     0x00002001      0x14a obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
                                 0x297 (size before relaxing)
- .debug_str     0x000020de      0x198 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+ .debug_str     0x0000214b      0x198 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
                                 0x2f2 (size before relaxing)
- .debug_str     0x00002276      0x236 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+ .debug_str     0x000022e3      0x236 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
                                 0x3b1 (size before relaxing)
- .debug_str     0x000024ac      0x424 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+ .debug_str     0x00002519      0x424 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
                                 0x66a (size before relaxing)
- .debug_str     0x000028d0      0xb00 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .debug_str     0x0000293d      0xb00 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
                                 0xe0f (size before relaxing)
 
 .comment        0x00000000       0x46
@@ -1014,7 +1074,7 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .comment       0x00000000       0x47 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
  .comment       0x00000000       0x47 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
 
-.debug_frame    0x00000000     0x22c8
+.debug_frame    0x00000000     0x22f4
  .debug_frame   0x00000000       0x44 obj\debug\cmsis\src\system_stm32f1xx.o
  .debug_frame   0x00000044      0x1f4 obj\debug\hal\src\stm32f1xx_hal.o
  .debug_frame   0x00000238      0x35c obj\debug\hal\src\stm32f1xx_hal_cortex.o
@@ -1024,16 +1084,16 @@ OUTPUT(bin\Debug\FlightPanel.elf elf32-littlearm)
  .debug_frame   0x00000974      0x4d0 obj\debug\hal\src\stm32f1xx_hal_spi.o
  .debug_frame   0x00000e44       0x4c obj\debug\hal\src\stm32f1xx_hal_spi_ex.o
  .debug_frame   0x00000e90      0x4a8 obj\debug\hal\src\stm32f1xx_hal_uart.o
- .debug_frame   0x00001338      0x170 obj\debug\src\ili9341_lib.o
- .debug_frame   0x000014a8       0xe8 obj\debug\src\main.o
- .debug_frame   0x00001590       0xf0 obj\debug\src\stm32f1xx_hal_msp.o
- .debug_frame   0x00001680       0x64 obj\debug\src\stm32f1xx_it.o
- .debug_frame   0x000016e4       0x9c obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
- .debug_frame   0x00001780      0x150 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
- .debug_frame   0x000018d0       0xb8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
- .debug_frame   0x00001988      0x2f8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
- .debug_frame   0x00001c80      0x620 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
- .debug_frame   0x000022a0       0x28 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00001338      0x19c obj\debug\src\ili9341_lib.o
+ .debug_frame   0x000014d4       0xe8 obj\debug\src\main.o
+ .debug_frame   0x000015bc       0xf0 obj\debug\src\stm32f1xx_hal_msp.o
+ .debug_frame   0x000016ac       0x64 obj\debug\src\stm32f1xx_it.o
+ .debug_frame   0x00001710       0x9c obj\debug\~#\lib\freertosv8.2.3\freertos\source\list.o
+ .debug_frame   0x000017ac      0x150 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\gcc\arm_cm3\port.o
+ .debug_frame   0x000018fc       0xb8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\portable\memmang\heap_5.o
+ .debug_frame   0x000019b4      0x2f8 obj\debug\~#\lib\freertosv8.2.3\freertos\source\queue.o
+ .debug_frame   0x00001cac      0x620 obj\debug\~#\lib\freertosv8.2.3\freertos\source\tasks.o
+ .debug_frame   0x000022cc       0x28 c:/skuksenk/tools/embitz_042/share/em_armgcc/bin/../lib/gcc/arm-none-eabi/4.8.4/../../../../arm-none-eabi/lib/armv7-m\libg_n.a(lib_a-memcpy-stub.o)
 
 .debug_ranges   0x00000000       0x20
  .debug_ranges  0x00000000       0x20 obj\debug\src\startup_stm32f103xb.o

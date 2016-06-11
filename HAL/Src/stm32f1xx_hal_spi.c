@@ -2039,7 +2039,7 @@ static void SPI_DMATransmitCplt(DMA_HandleTypeDef *hdma)
   /* DMA Normal Mode */
   if((hdma->Instance->CCR & DMA_CIRCULAR) == 0)
   {
-    /* Wait until TXE flag is set to send data */
+    /* Wait until TXE flag is set to send data*/
     if(SPI_WaitOnFlagUntilTimeout(hspi, SPI_FLAG_TXE, RESET, SPI_TIMEOUT_VALUE) != HAL_OK)
     {
       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_FLAG);

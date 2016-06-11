@@ -8,12 +8,14 @@
 #include "semphr.h"
 #include "task.h"
 
+
+#include <math.h>
 //#include "LcdFont.h"
 
 #define LCD_task_PRIORITY					( tskIDLE_PRIORITY + 1 )
 #define LCD_DataSenderTask_PRIORITY			( tskIDLE_PRIORITY + 2 )
 
-#define LCD_QUEUE_LEN   3
+#define LCD_QUEUE_LEN   10
 
 
 
@@ -102,16 +104,30 @@
 #define GreenYellow     0xAFE5      /* 173, 255,  47 */
 
 
+#define LCD_BITMAP_FRAME  1
+#define LCD_COLOR_FRAME   2
+#define LCD_COMMAND_FRAME 3
+
+#define SWAP(a,b) a=a^b; \
+                  b=a^b; \
+                  a=b^a;
+
 
 typedef struct
 {
     uint8_t command;
-	uint16_t lenght;
+    uint8_t frameType;
+	uint32_t lenght;
+	uint16_t color;
 	uint16_t * frame_array;
 } lcd_frame;
 
 
-void LCD_Init(SPI_HandleTypeDef *hspi);
+void LCD_Init(SPI_HandleTypeDef *hspi, DMA_HandleTypeDef * hdma);
 void LCD_FillRect (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
-void LCD_DrawFilledRectangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color);
+void LCD_FillRegion (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+void LCD_DrawRectangle (int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color, uint16_t lineWidth);
+void LCD_DrawPixel (int16_t x, int16_t y, uint16_t color, uint16_t pSize);
+void LCD_DrawLine (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t color, uint16_t lineWidth);
+
 #endif /* ILI9341_LIB_H_INCLUDED */

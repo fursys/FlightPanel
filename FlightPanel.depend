@@ -110,7 +110,7 @@
 1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_pwr.h
 	"stm32f1xx_hal_def.h"
 
-1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_spi.h
+1464379086 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_spi.h
 	"stm32f1xx_hal_def.h"
 
 1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_pcd.h
@@ -385,7 +385,7 @@
 1454256545 c:\skuksenk\_quadro\arm\prj\flightpanel\hal\inc\stm32f1xx_hal_usart.h
 	"stm32f1xx_hal_def.h"
 
-1463847146 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_spi.c
+1464549213 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_spi.c
 	"stm32f1xx_hal.h"
 
 1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_spi_ex.c
@@ -394,7 +394,7 @@
 1464031167 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\stm32f1xx_hal_msp.c
 	"stm32f1xx_hal.h"
 
-1464031545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\main.c
+1464553044 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\main.c
 	"stm32f1xx_hal.h"
 	"FreeRTOS.h"
 	"queue.h"
@@ -405,12 +405,13 @@
 1445001178 c:\skuksenk\_quadro\arm\prj\lib\freertosv8.2.3\freertos\source\include\semphr.h
 	"queue.h"
 
-1464031497 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\ili9341_lib.h
+1464460544 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\ili9341_lib.h
 	"stm32f1xx_hal.h"
 	"FreeRTOS.h"
 	"queue.h"
 	"semphr.h"
 	"task.h"
+	<math.h>
 
 1463822269 c:\skuksenk\_quadro\arm\prj\flightpanel\inc\lcdfont.h
 
@@ -436,6 +437,6 @@
 1454256545 source:c:\skuksenk\_quadro\arm\prj\flightpanel\hal\src\stm32f1xx_hal_usart.c
 	"stm32f1xx_hal.h"
 
-1464031417 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\ili9341_lib.c
+1464551708 source:c:\skuksenk\_quadro\arm\prj\flightpanel\src\ili9341_lib.c
 	"ILI9341_lib.h"
 
